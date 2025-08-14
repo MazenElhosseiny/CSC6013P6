@@ -25,6 +25,7 @@ def main():
     for i in range(1000):
         randomList.append(random.randint(0,1000))
 
+    print(randomList)
     while True:
         choice = input("Enter an integer value for the kth Smallest element to find in an unsorted array: ")
         if not choice:
@@ -32,11 +33,15 @@ def main():
         else:
             try:
                 choice_int = int(choice)
-                break
+                if 1 <= choice_int:
+                    break
+                else:
+                    print("Please enter a value greater than or equal to 1.")
             except ValueError:
                 print("Please enter an integer value.")
+    
+    
+    print(f"The {choice}th smallest element in the array is:", findKthSmallest(randomList, choice_int))
     randomList.sort()
     print(randomList)
-    print(f"The {choice}th smallest element in the array is:", findKthSmallest(randomList, choice_int))
-
 main()
